@@ -1,0 +1,32 @@
+{
+  "name": "@pangeacyber/mcp-server",
+  "version": "0.0.0-development",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.14.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx src/index.ts",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "typecheck": "tsc --noEmit",
+    "prepare": "npm run -s build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.10.1",
+    "pangea-node-sdk": "4.4.0",
+    "zod": "3.24.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@tsconfig/node22": "22.0.1",
+    "@types/node": "22.14.1",
+    "lefthook": "1.11.10",
+    "tsx": "4.19.3",
+    "typescript": "5.8.3",
+    "ultracite": "4.2.1"
+  }
+}

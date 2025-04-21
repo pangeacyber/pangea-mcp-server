@@ -1,0 +1,29 @@
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+
+import { registerDomainIntelTools } from './tools/domain-intel.js';
+import { registerEmbargoTools } from './tools/embargo.js';
+import { registerIpIntelTools } from './tools/ip-intel.js';
+import { registerRedactTools } from './tools/redact.js';
+import { registerUrlIntelTools } from './tools/url-intel.js';
+import type { ServerContext } from './types.js';
+
+function configureServer({
+  server,
+  context,
+}: { server: McpServer; context: ServerContext }) {
+  registerDomainIntelTools({ server, context });
+  registerEmbargoTools({ server, context });
+  registerIpIntelTools({ server, context });
+  registerRedactTools({ server, context });
+  registerUrlIntelTools({ server, context });
+}
+
+async function main() {
+  const server = new McpServer({ name: 'Pangea MCP', version: '0.0.0' });
+  const transport = new StdioServerTransport();
+  configureServer({ server, context: { apiToken: process.env.PANGEA_TOKEN! } });
+  await server.connect(transport);
+}
+
+main();

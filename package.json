@@ -16,7 +16,7 @@
     "prepare": "npm run -s build"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "1.10.1",
+    "@modelcontextprotocol/sdk": "1.10.2",
     "pangea-node-sdk": "4.4.0",
     "zod": "3.24.3"
   },

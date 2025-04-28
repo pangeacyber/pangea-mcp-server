@@ -23,7 +23,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@tsconfig/node22": "22.0.1",
-    "@types/node": "22.14.1",
+    "@types/node": "22.15.2",
     "lefthook": "1.11.11",
     "tsx": "4.19.3",
     "typescript": "5.8.3",

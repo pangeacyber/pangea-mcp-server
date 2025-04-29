@@ -2,6 +2,7 @@ import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { DomainIntelService, PangeaConfig } from 'pangea-node-sdk';
 import { z } from 'zod';
 
+import { aiGuard } from '../guard.js';
 import type { ServerContext } from '../types.js';
 
 export function registerDomainIntelTools({
@@ -18,7 +19,9 @@ export function registerDomainIntelTools({
         .max(100)
         .describe('The domains to be looked up'),
     },
-    async ({ domains }) => {
+    aiGuard<{
+      domains: z.ZodArray<z.ZodString, 'many'>;
+    }>(context, async ({ domains }) => {
       const domainIntel = new DomainIntelService(
         context.apiToken,
         new PangeaConfig({ domain: 'aws.us.pangea.cloud' })
@@ -49,7 +52,7 @@ export function registerDomainIntelTools({
           },
         ],
       };
-    }
+    })
   );
 
   server.tool(
@@ -58,7 +61,9 @@ export function registerDomainIntelTools({
     {
       domain: z.string().describe('The domain to query'),
     },
-    async ({ domain }) => {
+    aiGuard<{
+      domain: z.ZodString;
+    }>(context, async ({ domain }) => {
       const domainIntel = new DomainIntelService(
         context.apiToken,
         new PangeaConfig({ domain: 'aws.us.pangea.cloud' })
@@ -84,6 +89,6 @@ export function registerDomainIntelTools({
           },
         ],
       };
-    }
+    })
   );
 }

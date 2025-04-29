@@ -2,6 +2,7 @@ import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { EmbargoService, PangeaConfig } from 'pangea-node-sdk';
 import { z } from 'zod';
 
+import { aiGuard } from '../guard.js';
 import type { ServerContext } from '../types.js';
 
 export function registerEmbargoTools({
@@ -19,7 +20,9 @@ export function registerEmbargoTools({
           'Geolocate this IP and check the corresponding country against the enabled embargo lists'
         ),
     },
-    async ({ ip }) => {
+    aiGuard<{
+      ip: z.ZodString;
+    }>(context, async ({ ip }) => {
       const embargo = new EmbargoService(
         context.apiToken,
         new PangeaConfig({ domain: 'aws.us.pangea.cloud' })
@@ -45,7 +48,7 @@ export function registerEmbargoTools({
           },
         ],
       };
-    }
+    })
   );
 
   server.tool(
@@ -59,7 +62,9 @@ export function registerEmbargoTools({
           'The two character country ISO code to check against the enabled embargo lists'
         ),
     },
-    async ({ isoCode }) => {
+    aiGuard<{
+      isoCode: z.ZodString;
+    }>(context, async ({ isoCode }) => {
       const embargo = new EmbargoService(
         context.apiToken,
         new PangeaConfig({ domain: 'aws.us.pangea.cloud' })
@@ -85,6 +90,6 @@ export function registerEmbargoTools({
           },
         ],
       };
-    }
+    })
   );
 }

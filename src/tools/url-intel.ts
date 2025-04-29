@@ -18,6 +18,10 @@ export function registerUrlIntelTools({
         .max(100)
         .describe('The URLs to be looked up'),
     },
+
+    // Not running AI Guard for this tool because the recipes will block
+    // malicious URLs, which are exactly the sort of inputs and outputs that
+    // this tool wants to be dealing with.
     async ({ urls }) => {
       const urlIntel = new URLIntelService(
         context.apiToken,

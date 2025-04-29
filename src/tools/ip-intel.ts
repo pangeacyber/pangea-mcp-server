@@ -2,6 +2,7 @@ import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { IPIntelService, PangeaConfig } from 'pangea-node-sdk';
 import { z } from 'zod';
 
+import { aiGuard } from '../guard.js';
 import type { ServerContext } from '../types.js';
 
 export function registerIpIntelTools({
@@ -18,7 +19,9 @@ export function registerIpIntelTools({
         .max(100)
         .describe('The IP addresses to be looked up'),
     },
-    async ({ ipAddresses }) => {
+    aiGuard<{
+      ipAddresses: z.ZodArray<z.ZodString, 'many'>;
+    }>(context, async ({ ipAddresses }) => {
       const ipIntel = new IPIntelService(
         context.apiToken,
         new PangeaConfig({ domain: 'aws.us.pangea.cloud' })
@@ -49,7 +52,7 @@ export function registerIpIntelTools({
           },
         ],
       };
-    }
+    })
   );
 
   server.tool(
@@ -62,7 +65,9 @@ export function registerIpIntelTools({
         .max(100)
         .describe('The IP addresses to be looked up'),
     },
-    async ({ ipAddresses }) => {
+    aiGuard<{
+      ipAddresses: z.ZodArray<z.ZodString, 'many'>;
+    }>(context, async ({ ipAddresses }) => {
       const ipIntel = new IPIntelService(
         context.apiToken,
         new PangeaConfig({ domain: 'aws.us.pangea.cloud' })
@@ -93,7 +98,7 @@ export function registerIpIntelTools({
           },
         ],
       };
-    }
+    })
   );
 
   server.tool(
@@ -106,7 +111,9 @@ export function registerIpIntelTools({
         .max(100)
         .describe('The IP addresses to be looked up'),
     },
-    async ({ ipAddresses }) => {
+    aiGuard<{
+      ipAddresses: z.ZodArray<z.ZodString, 'many'>;
+    }>(context, async ({ ipAddresses }) => {
       const ipIntel = new IPIntelService(
         context.apiToken,
         new PangeaConfig({ domain: 'aws.us.pangea.cloud' })
@@ -137,7 +144,7 @@ export function registerIpIntelTools({
           },
         ],
       };
-    }
+    })
   );
 
   server.tool(
@@ -150,7 +157,9 @@ export function registerIpIntelTools({
         .max(100)
         .describe('The IP addresses to be looked up'),
     },
-    async ({ ipAddresses }) => {
+    aiGuard<{
+      ipAddresses: z.ZodArray<z.ZodString, 'many'>;
+    }>(context, async ({ ipAddresses }) => {
       const ipIntel = new IPIntelService(
         context.apiToken,
         new PangeaConfig({ domain: 'aws.us.pangea.cloud' })
@@ -181,7 +190,7 @@ export function registerIpIntelTools({
           },
         ],
       };
-    }
+    })
   );
 
   server.tool(
@@ -194,7 +203,9 @@ export function registerIpIntelTools({
         .max(100)
         .describe('The IP addresses to be looked up'),
     },
-    async ({ ipAddresses }) => {
+    aiGuard<{
+      ipAddresses: z.ZodArray<z.ZodString, 'many'>;
+    }>(context, async ({ ipAddresses }) => {
       const ipIntel = new IPIntelService(
         context.apiToken,
         new PangeaConfig({ domain: 'aws.us.pangea.cloud' })
@@ -220,6 +231,6 @@ export function registerIpIntelTools({
           },
         ],
       };
-    }
+    })
   );
 }

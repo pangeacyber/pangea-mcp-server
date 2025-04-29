@@ -2,6 +2,7 @@ import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { PangeaConfig, RedactService } from 'pangea-node-sdk';
 import { z } from 'zod';
 
+import { aiGuard } from '../guard.js';
 import type { ServerContext } from '../types.js';
 
 export function registerRedactTools({
@@ -14,7 +15,9 @@ export function registerRedactTools({
     {
       text: z.string().describe('The text data to redact'),
     },
-    async ({ text }) => {
+    aiGuard<{
+      text: z.ZodString;
+    }>(context, async ({ text }) => {
       const redact = new RedactService(
         context.apiToken,
         new PangeaConfig({ domain: 'aws.us.pangea.cloud' })
@@ -40,6 +43,6 @@ export function registerRedactTools({
           },
         ],
       };
-    }
+    })
   );
 }

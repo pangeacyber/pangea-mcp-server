@@ -2,6 +2,7 @@ import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { FileIntelService, PangeaConfig } from 'pangea-node-sdk';
 import { z } from 'zod';
 
+import { aiGuard } from '../guard.js';
 import type { ServerContext } from '../types.js';
 
 export function registerFileIntelTools({
@@ -21,7 +22,10 @@ export function registerFileIntelTools({
         .max(100)
         .describe('The file hashes to be looked up'),
     },
-    async ({ hashType, hashes }) => {
+    aiGuard<{
+      hashType: z.ZodEnum<['sha256', 'sha', 'md5']>;
+      hashes: z.ZodArray<z.ZodString, 'many'>;
+    }>(context, async ({ hashType, hashes }) => {
       const fileIntel = new FileIntelService(
         context.apiToken,
         new PangeaConfig({ domain: 'aws.us.pangea.cloud' })
@@ -47,6 +51,6 @@ export function registerFileIntelTools({
           },
         ],
       };
-    }
+    })
   );
 }

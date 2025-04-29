@@ -73,6 +73,10 @@ tools that come with the Pangea MCP server.
 - **is-vpn** — Determine if one or more IP addresses originate from a VPN.
 - **geolocate** — Retrieve location information associated with one or more IP addresses.
 
+### Prompt Guard
+
+- **prompt-guard** — Detect malicious prompts including direct or indirect prompt injection attacks and jailbreak attempts.
+
 ### Redact
 
 - **redact** — Redact sensitive information from provided text.

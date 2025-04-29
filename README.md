@@ -61,6 +61,10 @@ tools that come with the Pangea MCP server.
 - **check-ip-embargo** — Check an IP addresses against known sanction and trade embargo lists.
 - **check-iso-code-embargo** — Check a country code against known sanction and trade embargo lists.
 
+### File Intel
+
+- **lookup-file-reputation** — Retrieve a reputation score for a set of file hashes.
+
 ### IP Intel
 
 - **lookup-ip-address-reputation** — Look up reputation score(s) for one or more IP addresses.

@@ -36,7 +36,7 @@ the Pangea API token:
   "mcpServers": {
     "pangea": {
       "command": "node",
-      "args": ["/path/to/pangea-mcp-server/build/index.js"],
+      "args": ["/path/to/pangea-mcp-server/dist/index.js"],
       "env": {
         "PANGEA_TOKEN": "pts_00000000000000000000000000000000"
       }

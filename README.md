@@ -7,7 +7,8 @@ server that provides integration with Pangea APIs.
 
 - Node.js v22.15.0 or greater.
 - A Pangea API token with access to all of AI Guard, Domain Intel, Embargo,
-  IP Intel, Prompt Guard, Redact, and URL Intel.
+  IP Intel, Prompt Guard, Redact, Secure Audit Log, and URL Intel.
+- A Pangea Secure Audit Log config with the "Standard Audit Log Config" schema.
 
 ## Installation
 
@@ -38,7 +39,8 @@ the Pangea API token:
       "command": "node",
       "args": ["/path/to/pangea-mcp-server/dist/index.js"],
       "env": {
-        "PANGEA_TOKEN": "pts_00000000000000000000000000000000"
+        "PANGEA_TOKEN": "pts_00000000000000000000000000000000",
+        "PANGEA_AUDIT_CONFIG_ID": "pci_00000000000000000000000000000000"
       }
     }
   }
@@ -84,6 +86,11 @@ tools that come with the Pangea MCP server.
 ### Redact
 
 - **redact** — Redact sensitive information from provided text.
+
+### Secure Audit Log
+
+- **log-an-entry** — Create a log entry in the Secure Audit Log.
+- **search-the-log** — Search the Secure Audit Log.
 
 ### URL Intel
 

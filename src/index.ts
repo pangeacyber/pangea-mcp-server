@@ -8,6 +8,7 @@ import { registerFileIntelTools } from './tools/file-intel.js';
 import { registerIpIntelTools } from './tools/ip-intel.js';
 import { registerPromptGuardTools } from './tools/prompt-guard.js';
 import { registerRedactTools } from './tools/redact.js';
+import { registerSecureAuditLogTools } from './tools/secure-audit-log.js';
 import { registerUrlIntelTools } from './tools/url-intel.js';
 import type { ServerContext } from './types.js';
 
@@ -22,13 +23,20 @@ function configureServer({
   registerIpIntelTools({ server, context });
   registerPromptGuardTools({ server, context });
   registerRedactTools({ server, context });
+  registerSecureAuditLogTools({ server, context });
   registerUrlIntelTools({ server, context });
 }
 
 async function main() {
   const server = new McpServer({ name: 'Pangea MCP', version: '0.0.0' });
   const transport = new StdioServerTransport();
-  configureServer({ server, context: { apiToken: process.env.PANGEA_TOKEN! } });
+  configureServer({
+    server,
+    context: {
+      apiToken: process.env.PANGEA_TOKEN!,
+      auditConfigId: process.env.PANGEA_AUDIT_CONFIG_ID!,
+    },
+  });
   await server.connect(transport);
 }
 

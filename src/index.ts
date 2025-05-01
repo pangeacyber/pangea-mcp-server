@@ -1,6 +1,7 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 
+import { registerAiGuardTools } from './tools/ai-guard.js';
 import { registerDomainIntelTools } from './tools/domain-intel.js';
 import { registerEmbargoTools } from './tools/embargo.js';
 import { registerFileIntelTools } from './tools/file-intel.js';
@@ -14,6 +15,7 @@ function configureServer({
   server,
   context,
 }: { server: McpServer; context: ServerContext }) {
+  registerAiGuardTools({ server, context });
   registerDomainIntelTools({ server, context });
   registerEmbargoTools({ server, context });
   registerFileIntelTools({ server, context });

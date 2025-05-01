@@ -5,9 +5,9 @@ server that provides integration with Pangea APIs.
 
 ## Prerequisites
 
-- Node.js v22.14.0 or greater.
-- A Pangea API token with access to all of Domain Intel, Embargo, IP Intel,
-  Redact, and URL Intel.
+- Node.js v22.15.0 or greater.
+- A Pangea API token with access to all of AI Guard, Domain Intel, Embargo,
+  IP Intel, Prompt Guard, Redact, and URL Intel.
 
 ## Installation
 
@@ -50,6 +50,10 @@ below the text input box. Clicking the hammer icon should display a list of the
 tools that come with the Pangea MCP server.
 
 ## Tools
+
+### AI Guard
+
+- **guard-text** — Analyze and redact text to avoid manipulation of the model, addition of malicious content, and other undesirable data transfers.
 
 ### Domain Intel
 

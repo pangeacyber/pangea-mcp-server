@@ -3,7 +3,7 @@
 A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction)
 server that provides integration with Pangea APIs.
 
-![sample output](.github/assets/geolocate.png)
+![sample output](.github/assets/log-entry.png)
 
 ## Prerequisites
 

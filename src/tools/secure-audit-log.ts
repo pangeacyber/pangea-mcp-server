@@ -61,24 +61,12 @@ export function registerSecureAuditLogTools({
           undefined,
           context.auditConfigId
         );
-        const response = await audit.log(event);
-
-        if (!response.success) {
-          return {
-            content: [
-              {
-                type: 'text',
-                text: 'Failed to log the entry',
-              },
-            ],
-          };
-        }
-
+        const response = await audit.logBulkAsync([event]);
         return {
           content: [
             {
               type: 'text',
-              text: JSON.stringify(response.result, null, 2),
+              text: JSON.stringify(response, null, 2),
             },
           ],
         };

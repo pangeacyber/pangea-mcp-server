@@ -10,8 +10,8 @@ export function registerDomainIntelTools({
   context,
 }: { server: McpServer; context: ServerContext }) {
   server.tool(
-    'lookup-domain-reputation',
-    'Look up reputation score(s) for one or more domains',
+    'lookup_domain_reputation',
+    'Look up reputation score(s) for one or more domains.',
     {
       domains: z
         .array(z.string())
@@ -57,7 +57,7 @@ export function registerDomainIntelTools({
 
   server.tool(
     'whois',
-    'Retrieve who is for a domain',
+    "Retrieve WHOIS (an Internet resource's registered users or assignees) for a domain.",
     {
       domain: z.string().describe('The domain to query'),
     },

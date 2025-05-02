@@ -19,8 +19,8 @@ export function registerPromptGuardTools({
   };
 
   server.tool(
-    'prompt-guard',
-    'Detect malicious prompts including direct or indirect prompt injection attacks and jailbreak attempts',
+    'prompt_guard',
+    'Detect malicious prompts including direct or indirect prompt injection attacks and jailbreak attempts.',
     schema,
     aiGuard<typeof schema>(context, async ({ messages }) => {
       const promptGuard = new PromptGuardService(

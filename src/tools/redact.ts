@@ -11,7 +11,7 @@ export function registerRedactTools({
 }: { server: McpServer; context: ServerContext }) {
   server.tool(
     'redact',
-    'Redact sensitive information from provided text',
+    'Redact sensitive information from provided text.',
     {
       text: z.string().describe('The text data to redact'),
     },

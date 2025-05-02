@@ -9,8 +9,8 @@ export function registerUrlIntelTools({
   context,
 }: { server: McpServer; context: ServerContext }) {
   server.tool(
-    'lookup-url-reputation',
-    'Look up reputation score(s) for one or more URLs',
+    'lookup_url_reputation',
+    'Look up reputation score(s) for one or more URLs.',
     {
       urls: z
         .array(z.string().url())

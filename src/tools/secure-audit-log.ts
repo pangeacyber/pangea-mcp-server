@@ -47,7 +47,7 @@ export function registerSecureAuditLogTools({
   context,
 }: { server: McpServer; context: ServerContext }) {
   server.tool(
-    'log-an-entry',
+    'log_entry',
     'Create a log entry in the Secure Audit Log.',
     {
       event: standardAuditLogEventSchema,
@@ -87,7 +87,7 @@ export function registerSecureAuditLogTools({
   );
 
   server.tool(
-    'search-the-log',
+    'search_log',
     [
       'Search the Secure Audit Log.',
       '',

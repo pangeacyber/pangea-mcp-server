@@ -59,33 +59,33 @@ Then restart Claude Desktop.
 
 ### AI Guard
 
-- **guard-text** — Analyze and redact text to avoid manipulation of the model, addition of malicious content, and other undesirable data transfers.
+- **guard_text** — Analyze and redact text to avoid manipulation of the model, addition of malicious content, and other undesirable data transfers.
 
 ### Domain Intel
 
-- **lookup-domain-reputation** — Look up reputation score(s) for one or more domains.
-- **whois** — Retrieve who is for a domain.
+- **lookup_domain_reputation** — Look up reputation score(s) for one or more domains.
+- **whois** — Retrieve WHOIS (an Internet resource's registered users or assignees) for a domain.
 
 ### Embargo
 
-- **check-ip-embargo** — Check an IP addresses against known sanction and trade embargo lists.
-- **check-iso-code-embargo** — Check a country code against known sanction and trade embargo lists.
+- **check_ip_embargo** — Check one or more IP addresses against known sanction and trade embargo lists.
+- **check_iso_code_embargo** — Check a country code against known sanction and trade embargo lists.
 
 ### File Intel
 
-- **lookup-file-reputation** — Retrieve a reputation score for a set of file hashes.
+- **lookup_file_reputation** — Retrieve a reputation score for a set of file hashes.
 
 ### IP Intel
 
-- **lookup-ip-address-reputation** — Look up reputation score(s) for one or more IP addresses.
-- **lookup-domain-from-ip-address** — Retrieve the domain name associated with one or more IP addresses.
-- **is-proxy** — Determine if one or more IP addresses originate from a proxy.
-- **is-vpn** — Determine if one or more IP addresses originate from a VPN.
-- **geolocate** — Retrieve location information associated with one or more IP addresses.
+- **lookup_ip_address_reputation** — Look up reputation score(s) for one or more IP addresses.
+- **lookup_domain_from_ip_address** — Retrieve the domain name associated with one or more IP addresses.
+- **is_proxy** — Determine if one or more IP addresses originate from a proxy.
+- **is_vpn** — Determine if one or more IP addresses originate from a VPN.
+- **geolocate** — Geolocate, or retrieve location information associated with, one or more IP addresses.
 
 ### Prompt Guard
 
-- **prompt-guard** — Detect malicious prompts including direct or indirect prompt injection attacks and jailbreak attempts.
+- **prompt_guard** — Detect malicious prompts including direct or indirect prompt injection attacks and jailbreak attempts.
 
 ### Redact
 
@@ -93,9 +93,9 @@ Then restart Claude Desktop.
 
 ### Secure Audit Log
 
-- **log-an-entry** — Create a log entry in the Secure Audit Log.
-- **search-the-log** — Search the Secure Audit Log.
+- **log_entry** — Create a log entry in the Secure Audit Log.
+- **search_log** — Search the Secure Audit Log.
 
 ### URL Intel
 
-- **lookup-url-reputation** — Look up reputation score(s) for one or more URLs.
+- **lookup_url_reputation** — Look up reputation score(s) for one or more URLs.

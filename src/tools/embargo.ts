@@ -10,8 +10,8 @@ export function registerEmbargoTools({
   context,
 }: { server: McpServer; context: ServerContext }) {
   server.tool(
-    'check-ip-embargo',
-    'Check an IP addresses against known sanction and trade embargo lists',
+    'check_ip_embargo',
+    'Check one or more IP addresses against known sanction and trade embargo lists.',
     {
       ip: z
         .string()
@@ -52,7 +52,7 @@ export function registerEmbargoTools({
   );
 
   server.tool(
-    'check-iso-code-embargo',
+    'check_iso_code_embargo',
     'Check a country code against known sanction and trade embargo lists',
     {
       isoCode: z

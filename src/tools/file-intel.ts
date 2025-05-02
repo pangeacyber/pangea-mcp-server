@@ -10,7 +10,7 @@ export function registerFileIntelTools({
   context,
 }: { server: McpServer; context: ServerContext }) {
   server.tool(
-    'lookup-file-reputation',
+    'lookup_file_reputation',
     'Retrieve a reputation score for a set of file hashes',
     {
       hashType: z

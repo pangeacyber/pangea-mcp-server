@@ -9,9 +9,9 @@ export function registerAiGuardTools({
   context,
 }: { server: McpServer; context: ServerContext }) {
   server.tool(
-    'guard-text',
+    'guard_text',
     [
-      'Analyze and redact text to avoid manipulation of the model, addition of malicious content, and other undesirable data transfers.',
+      'Analyze and redact text to avoid manipulation of an AI model, addition of malicious content, and other undesirable data transfers.',
       '',
       'Available recipes:',
       '- pangea_prompt_guard: Applied to initial user input prompt. Used to detect and block user prompt injection attempts.',

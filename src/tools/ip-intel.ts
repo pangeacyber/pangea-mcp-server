@@ -10,8 +10,8 @@ export function registerIpIntelTools({
   context,
 }: { server: McpServer; context: ServerContext }) {
   server.tool(
-    'lookup-ip-address-reputation',
-    'Look up reputation score(s) for one or more IP addresses',
+    'lookup_ip_address_reputation',
+    'Look up reputation score(s) for one or more IP addresses.',
     {
       ipAddresses: z
         .array(z.string().ip())
@@ -56,8 +56,8 @@ export function registerIpIntelTools({
   );
 
   server.tool(
-    'lookup-domain-from-ip-address',
-    'Retrieve the domain name associated with one or more IP addresses',
+    'lookup_domain_from_ip_address',
+    'Retrieve the domain name associated with one or more IP addresses.',
     {
       ipAddresses: z
         .array(z.string().ip())
@@ -102,8 +102,8 @@ export function registerIpIntelTools({
   );
 
   server.tool(
-    'is-proxy',
-    'Determine if one or more IP addresses originate from a proxy',
+    'is_proxy',
+    'Determine if one or more IP addresses originate from a proxy.',
     {
       ipAddresses: z
         .array(z.string().ip())
@@ -148,8 +148,8 @@ export function registerIpIntelTools({
   );
 
   server.tool(
-    'is-vpn',
-    'Determine if one or more IP addresses originate from a VPN',
+    'is_vpn',
+    'Determine if one or more IP addresses originate from a VPN.',
     {
       ipAddresses: z
         .array(z.string().ip())
@@ -195,7 +195,7 @@ export function registerIpIntelTools({
 
   server.tool(
     'geolocate',
-    'Retrieve location information associated with one or more IP addresses',
+    'Geolocate, or retrieve location information associated with, one or more IP addresses.',
     {
       ipAddresses: z
         .array(z.string().ip())

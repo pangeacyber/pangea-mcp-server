@@ -1,5 +1,5 @@
 {
-  "name": "@pangeacyber/mcp-server",
+  "name": "@pangeacyber/mcp-server-langchain",
   "version": "0.0.0-development",
   "private": true,
   "license": "Apache-2.0",
@@ -9,25 +9,21 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "tsx src/index.ts",
-    "lint": "biome check .",
-    "lint:fix": "biome check --write .",
     "typecheck": "tsc --noEmit",
     "prepare": "npm run -s build"
   },
-  "workspaces": ["examples/langchain", "."],
   "dependencies": {
+    "@langchain/core": "^0.3.51",
+    "@langchain/langgraph": "0.2.67",
+    "@langchain/mcp-adapters": "0.4.2",
+    "@langchain/openai": "0.5.10",
     "@modelcontextprotocol/sdk": "1.10.2",
-    "pangea-node-sdk": "5.1.0",
-    "zod": "3.24.3"
+    "citty": "0.1.6",
+    "consola": "3.4.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
     "@tsconfig/node22": "22.0.1",
     "@types/node": "22.15.3",
-    "lefthook": "1.11.12",
-    "tsx": "4.19.4",
-    "typescript": "5.8.3",
-    "ultracite": "4.2.1"
+    "typescript": "5.8.3"
   }
 }

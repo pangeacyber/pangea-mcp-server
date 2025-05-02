@@ -29,6 +29,13 @@ function configureServer({
 }
 
 async function main() {
+  if (!process.env.PANGEA_VAULT_TOKEN) {
+    throw new Error('Missing environment variable: PANGEA_VAULT_TOKEN');
+  }
+  if (!process.env.PANGEA_VAULT_ITEM_ID) {
+    throw new Error('Missing environment variable: PANGEA_VAULT_ITEM_ID');
+  }
+
   const vault = new VaultService(
     process.env.PANGEA_VAULT_TOKEN!,
     new PangeaConfig({ domain: 'aws.us.pangea.cloud' })

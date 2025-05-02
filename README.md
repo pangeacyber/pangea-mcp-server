@@ -35,7 +35,9 @@ Edit the following configuration file (create it if it does not exist):
 - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 
 Replace (or merge) the file contents with the following, updating the path and
-the Pangea API token:
+the environment variables. `PANGEA_VAULT_TOKEN` should be the Pangea Vault API
+token, and `PANGEA_VAULT_ITEM_ID` should be the Vault item ID that contains the
+API token that will be used to call all other Pangea services.
 
 ```json
 {

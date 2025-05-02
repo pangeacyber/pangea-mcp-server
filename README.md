@@ -3,6 +3,8 @@
 A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction)
 server that provides integration with Pangea APIs.
 
+![sample output](.github/assets/geolocate.png)
+
 ## Prerequisites
 
 - Node.js v22.15.0 or greater.

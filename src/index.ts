@@ -1,6 +1,7 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 
+import { PangeaConfig, VaultService } from 'pangea-node-sdk';
 import { registerAiGuardTools } from './tools/ai-guard.js';
 import { registerDomainIntelTools } from './tools/domain-intel.js';
 import { registerEmbargoTools } from './tools/embargo.js';
@@ -28,12 +29,23 @@ function configureServer({
 }
 
 async function main() {
+  const vault = new VaultService(
+    process.env.PANGEA_VAULT_TOKEN!,
+    new PangeaConfig({ domain: 'aws.us.pangea.cloud' })
+  );
+  const response = await vault.getItem({
+    id: process.env.PANGEA_VAULT_ITEM_ID!,
+  });
+  if (!response.success) {
+    throw new Error('Failed to get API token from Pangea Vault.');
+  }
+
   const server = new McpServer({ name: 'Pangea MCP', version: '0.0.0' });
   const transport = new StdioServerTransport();
   configureServer({
     server,
     context: {
-      apiToken: process.env.PANGEA_TOKEN!,
+      apiToken: response.result.item_versions[0].token!,
       auditConfigId: process.env.PANGEA_AUDIT_CONFIG_ID!,
     },
   });

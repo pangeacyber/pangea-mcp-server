@@ -7,7 +7,6 @@ import { registerDomainIntelTools } from './tools/domain-intel.js';
 import { registerEmbargoTools } from './tools/embargo.js';
 import { registerFileIntelTools } from './tools/file-intel.js';
 import { registerIpIntelTools } from './tools/ip-intel.js';
-import { registerPromptGuardTools } from './tools/prompt-guard.js';
 import { registerRedactTools } from './tools/redact.js';
 import { registerSecureAuditLogTools } from './tools/secure-audit-log.js';
 import { registerUrlIntelTools } from './tools/url-intel.js';
@@ -22,7 +21,6 @@ function configureServer({
   registerEmbargoTools({ server, context });
   registerFileIntelTools({ server, context });
   registerIpIntelTools({ server, context });
-  registerPromptGuardTools({ server, context });
   registerRedactTools({ server, context });
   registerSecureAuditLogTools({ server, context });
   registerUrlIntelTools({ server, context });

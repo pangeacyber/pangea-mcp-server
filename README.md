@@ -61,7 +61,7 @@ Then restart Claude Desktop.
 
 ### AI Guard
 
-- **guard_text** — Analyze and redact text to avoid manipulation of the model, addition of malicious content, and other undesirable data transfers.
+- **prompt_guard** — Analyze and redact text to avoid manipulation of the model, addition of malicious content, and other undesirable data transfers.
 
 ### Domain Intel
 
@@ -84,10 +84,6 @@ Then restart Claude Desktop.
 - **is_proxy** — Determine if one or more IP addresses originate from a proxy.
 - **is_vpn** — Determine if one or more IP addresses originate from a VPN.
 - **geolocate** — Geolocate, or retrieve location information associated with, one or more IP addresses.
-
-### Prompt Guard
-
-- **prompt_guard** — Detect malicious prompts including direct or indirect prompt injection attacks and jailbreak attempts.
 
 ### Redact
 

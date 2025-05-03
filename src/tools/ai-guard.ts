@@ -9,7 +9,8 @@ export function registerAiGuardTools({
   context,
 }: { server: McpServer; context: ServerContext }) {
   server.tool(
-    'guard_text',
+    // Yes this is technically an AI Guard tool but we like this name for it.
+    'prompt_guard',
     [
       'Analyze and redact text to avoid manipulation of an AI model, addition of malicious content, and other undesirable data transfers.',
       '',

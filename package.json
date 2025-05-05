@@ -13,7 +13,7 @@
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "typecheck": "tsc --noEmit",
-    "prepare": "npm run -s build"
+    "prepublishOnly": "npm run -s build"
   },
   "workspaces": ["examples/langchain", "."],
   "dependencies": {

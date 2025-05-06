@@ -9,11 +9,19 @@ server that provides integration with Pangea APIs.
 
 - Node.js v22.15.0 or greater.
 - A Pangea API token with access to all of AI Guard, Domain Intel, Embargo,
-  IP Intel, Prompt Guard, Redact, Secure Audit Log, and URL Intel. This token
-  needs to be stored in Pangea Vault.
+  IP Intel, Redact, Secure Audit Log, and URL Intel. This token needs to be
+  stored in Pangea Vault. See [Service Tokens][] for documentation on how to
+  create and manage Pangea API tokens.
 - A Pangea API token with access to Vault. This will be used to fetch the above
   token at runtime.
-- A Pangea Secure Audit Log config with the "Standard Audit Log Config" schema.
+- A Pangea Secure Audit Log configuration with the "Standard Audit Log Config"
+  [schema][Audit Schema]. See [Multiple Service Configurations][] for
+  documentation on how to create a new Secure Audit Log configuration. Note down
+  the configuration ID for later.
+
+The first API token may look like:
+
+![sample API token](.github/assets/services-token.png)
 
 ## Installation
 
@@ -35,10 +43,7 @@ Edit the following configuration file (create it if it does not exist):
 - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 
-Replace (or merge) the file contents with the following, updating the path and
-the environment variables. `PANGEA_VAULT_TOKEN` should be the Pangea Vault API
-token, and `PANGEA_VAULT_ITEM_ID` should be the Vault item ID that contains the
-API token that will be used to call all other Pangea services.
+Replace (or merge) the file contents with the following:
 
 ```json
 {
@@ -56,7 +61,14 @@ API token that will be used to call all other Pangea services.
 }
 ```
 
-Then restart Claude Desktop.
+1. Update the `/path/to/` path to point to the location of the Pangea MCP
+   server.
+2. Update the `PANGEA_VAULT_TOKEN` value to the Pangea Vault API token.
+3. Update the `PANGEA_VAULT_ITEM_ID` value to the Vault item ID that contains
+   the API token that will be used to call all other Pangea services.
+4. Update the `PANGEA_AUDIT_CONFIG_ID` value to the Secure Audit Log
+   configuration ID.
+5. Restart Claude Desktop.
 
 ## Tools
 
@@ -98,3 +110,7 @@ Then restart Claude Desktop.
 ### URL Intel
 
 - **lookup_url_reputation** — Look up reputation score(s) for one or more URLs.
+
+[Service Tokens]: https://pangea.cloud/docs/admin-guide/projects/credentials#service-tokens
+[Audit Schema]: https://pangea.cloud/docs/audit/getting-started/configuration#audit-schema
+[Multiple Service Configurations]: https://pangea.cloud/docs/audit/getting-started/multiple-configurations

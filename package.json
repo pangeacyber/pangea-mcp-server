@@ -15,7 +15,7 @@
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run -s build"
   },
-  "workspaces": ["examples/langchain", "."],
+  "workspaces": ["examples/frameworkless", "examples/langchain", "."],
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.11.0",
     "pangea-node-sdk": "5.1.0",

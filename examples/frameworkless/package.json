@@ -1,0 +1,27 @@
+{
+  "name": "@pangeacyber/mcp-server-frameworkless",
+  "version": "0.0.0-development",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.15.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "prepare": "npm run -s build"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.41.0",
+    "@dotenvx/dotenvx": "1.43.0",
+    "@modelcontextprotocol/sdk": "1.11.0",
+    "citty": "0.1.6",
+    "consola": "3.4.2"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "22.0.1",
+    "@types/node": "22.15.3",
+    "typescript": "5.8.3"
+  }
+}

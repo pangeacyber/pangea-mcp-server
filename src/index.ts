@@ -45,7 +45,7 @@ async function main() {
     throw new Error('Failed to get API token from Pangea Vault.');
   }
 
-  const server = new McpServer({ name: 'Pangea MCP', version: '0.0.0' });
+  const server = new McpServer({ name: 'Pangea MCP', version: '0.1.0' });
   const transport = new StdioServerTransport();
   configureServer({
     server,

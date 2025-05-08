@@ -3,7 +3,7 @@
 A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction)
 server that provides integration with Pangea APIs.
 
-![sample output](.github/assets/log-entry.png)
+![sample output](.github/assets/sample-output.png)
 
 ## Prerequisites
 
@@ -22,6 +22,55 @@ server that provides integration with Pangea APIs.
 The first API token may look like:
 
 ![sample API token](.github/assets/services-token.png)
+
+## Pangea setup from scratch
+
+This section will go over how to set up a brand new Pangea account for this MCP
+server.
+
+1. Create a Pangea account at <https://pangea.cloud/signup>. During the account
+   creation process, an organization (top-level group) and project
+   (individual app) will be created as well. On the "Get started with a common
+   service" dialog, just click on the **Skip** button to get redirected to the
+   developer console.
+1. In the developer console, there will be a list of services in the left hand
+   panel. Click on the **Vault** service to enable it. Vault provides secure
+   storage of secrets, cryptographic keys, and Pangea API tokens.
+1. In the modal, there will be a prompt to create a new Pangea API token or to
+   extend an existing one. Choose **Create a new token** and click on **Done**.
+   This is the token that will be used later as the `PANGEA_VAULT_TOKEN`
+   environment variable.
+1. In the left hand panel, click on the **Secure Audit Log** service to enable
+   it. Secure Audit Log provides transparent, immutable, and cryptographically
+   verifiable tamperproof audit logging.
+1. Continue with the default **Standard Audit Log** schema.
+1. In the modal, there will be a prompt to create a new Pangea API token or to
+   extend an existing one. Choose **Create a new token**. Ensure that the
+   **Store token in Vault** checkbox is checked, then click **Done**.
+1. The **Config ID** displayed on the destination page is what will be used
+   later as the `PANGEA_AUDIT_CONFIG_ID` environment variable.
+1. Now the second token that was created must be extended to the rest of
+   Pangea's services. For each of the following services, click on its
+   respective item in the left hand panel and, in the modal that appears, choose
+   **Extend an existing token**. Select the token that was created in the
+   previous step (not the first token that was created for Vault alone), then
+   click **Done**.
+   1. AI Guard — Protects data and interactions with LLMs.
+   1. Domain Intel — Retrieves intelligence data for submitted domains.
+      Supported providers: DomainTools, CrowdStrike, WhoisXML API.
+   1. Embargo — Checks IPs and country codes against known sanction and trade
+      embargo lists.
+   1. IP Intel — IP monitoring. Supported providers: Team CYMRU, CrowdStrike,
+      Digital Element.
+   1. Redact — Controls sensitive information by performing redaction using
+      defined rules.
+   1. URL Intel — Retrieves intelligence about known URLs. Supported provider:
+      CrowdStrike.
+1. Navigate to <https://console.pangea.cloud/project/credentials>. The token
+   that has been extended to all of the above services should be displayed with
+   a "Stored" indicator under the Vault column. Click on that to navigate
+   straight to the Vault item that contains that token. The **ID** of this item
+   is what will be used as the `PANGEA_VAULT_ITEM_ID` environment variable.
 
 ## Installation
 

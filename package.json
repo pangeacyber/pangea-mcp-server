@@ -1,8 +1,11 @@
 {
   "name": "@pangeacyber/mcp-server",
-  "version": "0.0.0-development",
-  "private": true,
+  "version": "0.0.0",
+  "description": "A Model Context Protocol (MCP) server that provides integration with Pangea APIs",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "engines": {
     "node": ">=22.15.0"

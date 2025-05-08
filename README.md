@@ -72,20 +72,7 @@ server.
    straight to the Vault item that contains that token. The **ID** of this item
    is what will be used as the `PANGEA_VAULT_ITEM_ID` environment variable.
 
-## Installation
-
-First build the project from source:
-
-```shell
-$ git clone https://github.com/pangeacyber/pangea-mcp-server.git
-$ cd pangea-mcp-server
-$ npm install
-$ npm run build
-```
-
-Then configure a MCP client like Claude Desktop or VS Code to run the server.
-
-### Usage with Claude Desktop
+## Usage with Claude Desktop
 
 Edit the following configuration file (create it if it does not exist):
 
@@ -98,8 +85,8 @@ Replace (or merge) the file contents with the following:
 {
   "mcpServers": {
     "pangea": {
-      "command": "node",
-      "args": ["/path/to/pangea-mcp-server/dist/index.js"],
+      "command": "npx",
+      "args": ["-y", "@pangeacyber/mcp-server"],
       "env": {
         "PANGEA_VAULT_TOKEN": "pts_00000000000000000000000000000000",
         "PANGEA_VAULT_ITEM_ID": "pvi_00000000000000000000000000000000",
@@ -110,14 +97,12 @@ Replace (or merge) the file contents with the following:
 }
 ```
 
-1. Update the `/path/to/` path to point to the location of the Pangea MCP
-   server.
-2. Update the `PANGEA_VAULT_TOKEN` value to the Pangea Vault API token.
-3. Update the `PANGEA_VAULT_ITEM_ID` value to the Vault item ID that contains
+1. Update the `PANGEA_VAULT_TOKEN` value to the Pangea Vault API token.
+1. Update the `PANGEA_VAULT_ITEM_ID` value to the Vault item ID that contains
    the API token that will be used to call all other Pangea services.
-4. Update the `PANGEA_AUDIT_CONFIG_ID` value to the Secure Audit Log
+1. Update the `PANGEA_AUDIT_CONFIG_ID` value to the Secure Audit Log
    configuration ID.
-5. Restart Claude Desktop.
+1. Restart Claude Desktop.
 
 ## Tools
 

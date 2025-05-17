@@ -5,7 +5,7 @@
   "license": "Apache-2.0",
   "type": "module",
   "engines": {
-    "node": ">=22.15.0"
+    "node": ">=22.15.1"
   },
   "scripts": {
     "build": "tsc",
@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@tsconfig/node22": "22.0.1",
-    "@types/node": "22.15.17",
+    "@types/node": "22.15.18",
     "typescript": "5.8.3"
   }
 }

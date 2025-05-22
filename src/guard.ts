@@ -42,7 +42,7 @@ export function aiGuard<Args extends ZodRawShape>(
     const result = await cb(args, extra);
 
     // AI Guard can only guard text content.
-    if (result.content.some((c) => c.type !== 'text')) {
+    if (!result.content || result.content.some(({ type }) => type !== 'text')) {
       return result;
     }
 

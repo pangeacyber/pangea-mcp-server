@@ -22,7 +22,7 @@
     "consola": "3.4.2"
   },
   "devDependencies": {
-    "@tsconfig/node22": "22.0.1",
+    "@tsconfig/node22": "22.0.2",
     "@types/node": "22.15.17",
     "typescript": "5.8.3"
   }

@@ -12,6 +12,7 @@ import { registerIpIntelTools } from './tools/ip-intel.js';
 import { registerRedactTools } from './tools/redact.js';
 import { registerSecureAuditLogTools } from './tools/secure-audit-log.js';
 import { registerUrlIntelTools } from './tools/url-intel.js';
+import { registerVaultTools } from './tools/vault.js';
 import type { ServerContext } from './types.js';
 
 function configureServer({
@@ -26,6 +27,7 @@ function configureServer({
   registerRedactTools({ server, context });
   registerSecureAuditLogTools({ server, context });
   registerUrlIntelTools({ server, context });
+  registerVaultTools({ server, context });
 }
 
 async function main() {

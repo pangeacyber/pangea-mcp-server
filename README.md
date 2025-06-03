@@ -9,8 +9,8 @@ server that provides integration with Pangea APIs.
 
 - Node.js v22.15.0 or greater.
 - A Pangea API token with access to all of AI Guard, Domain Intel, Embargo,
-  IP Intel, Redact, Secure Audit Log, and URL Intel. This token needs to be
-  stored in Pangea Vault. See [Service Tokens][] for documentation on how to
+  IP Intel, Redact, Secure Audit Log, URL Intel, and Vault. This token needs to
+  be stored in Pangea Vault. See [Service Tokens][] for documentation on how to
   create and manage Pangea API tokens.
 - A Pangea API token with access to Vault. This will be used to fetch the above
   token at runtime.
@@ -66,6 +66,8 @@ server.
       defined rules.
    1. URL Intel — Retrieves intelligence about known URLs. Supported provider:
       CrowdStrike.
+   1. Vault — Secure storage of secrets, cryptographic keys, and Pangea API
+      tokens.
 1. Navigate to <https://console.pangea.cloud/project/credentials>. The token
    that has been extended to all of the above services should be displayed with
    a "Stored" indicator under the Vault column. Click on that to navigate
@@ -144,6 +146,13 @@ Replace (or merge) the file contents with the following:
 ### URL Intel
 
 - **lookup_url_reputation** — Look up reputation score(s) for one or more URLs.
+
+### Vault
+
+- **get_vault_item** — Retrieve details for a Vault key, secret, token, or folder.
+- **list_vault_items** — Retrieve an array of Vault items matching a given filter, including secrets, keys, tokens, and folders, along with their common details.
+- **delete_vault_item** — Delete a Vault key, secret, token, or folder.
+- **generate_key** — Generate a symmetric or asymmetric key.
 
 [Service Tokens]: https://pangea.cloud/docs/admin-guide/projects/credentials#service-tokens
 [Audit Schema]: https://pangea.cloud/docs/audit/getting-started/configuration#audit-schema

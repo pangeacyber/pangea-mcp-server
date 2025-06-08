@@ -13,7 +13,7 @@
     "prepare": "npm run -s build"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "0.52.0",
+    "@anthropic-ai/sdk": "0.53.0",
     "@dotenvx/dotenvx": "1.44.1",
     "@modelcontextprotocol/sdk": "1.12.1",
     "citty": "0.1.6",

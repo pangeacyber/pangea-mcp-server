@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@langchain/core": "^0.3.57",
-    "@langchain/langgraph": "0.2.74",
+    "@langchain/langgraph": "0.3.1",
     "@langchain/mcp-adapters": "0.5.2",
     "@langchain/openai": "0.5.11",
     "@modelcontextprotocol/sdk": "1.12.1",

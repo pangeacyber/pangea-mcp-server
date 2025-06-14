@@ -16,7 +16,7 @@
     "@langchain/core": "^0.3.58",
     "@langchain/langgraph": "0.3.1",
     "@langchain/mcp-adapters": "0.5.2",
-    "@langchain/openai": "0.5.12",
+    "@langchain/openai": "0.5.13",
     "@modelcontextprotocol/sdk": "1.12.1",
     "citty": "0.1.6",
     "consola": "3.4.2"

@@ -26,7 +26,7 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.12.3",
     "pangea-node-sdk": "5.1.0",
-    "zod": "3.25.64"
+    "zod": "3.25.67"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",

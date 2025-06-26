@@ -24,7 +24,7 @@
   },
   "workspaces": ["examples/frameworkless", "examples/langchain", "."],
   "dependencies": {
-    "@modelcontextprotocol/sdk": "1.13.0",
+    "@modelcontextprotocol/sdk": "1.13.1",
     "pangea-node-sdk": "5.1.0",
     "zod": "3.25.67"
   },

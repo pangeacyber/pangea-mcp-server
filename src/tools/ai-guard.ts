@@ -7,7 +7,10 @@ import type { ServerContext } from '../types.js';
 export function registerAiGuardTools({
   server,
   context,
-}: { server: McpServer; context: ServerContext }) {
+}: {
+  server: McpServer;
+  context: ServerContext;
+}) {
   server.tool(
     // Yes this is technically an AI Guard tool but we like this name for it.
     'prompt_guard',

@@ -8,7 +8,10 @@ import type { ServerContext } from '../types.js';
 export function registerIpIntelTools({
   server,
   context,
-}: { server: McpServer; context: ServerContext }) {
+}: {
+  server: McpServer;
+  context: ServerContext;
+}) {
   server.tool(
     'lookup_ip_address_reputation',
     'Look up reputation score(s) for one or more IP addresses.',

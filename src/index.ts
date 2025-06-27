@@ -18,7 +18,10 @@ import type { ServerContext } from './types.js';
 function configureServer({
   server,
   context,
-}: { server: McpServer; context: ServerContext }) {
+}: {
+  server: McpServer;
+  context: ServerContext;
+}) {
   registerAiGuardTools({ server, context });
   registerDomainIntelTools({ server, context });
   registerEmbargoTools({ server, context });

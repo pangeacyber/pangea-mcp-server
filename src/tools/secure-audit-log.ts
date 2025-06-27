@@ -45,7 +45,10 @@ const standardAuditLogEventSchema = z
 export function registerSecureAuditLogTools({
   server,
   context,
-}: { server: McpServer; context: ServerContext }) {
+}: {
+  server: McpServer;
+  context: ServerContext;
+}) {
   server.tool(
     'log_entry',
     'Create a log entry in the Secure Audit Log.',

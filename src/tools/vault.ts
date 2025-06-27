@@ -9,7 +9,10 @@ const VAULT_ITEM_ID_REGEX = /^pvi_[a-z2-7]{32}$/;
 export function registerVaultTools({
   server,
   context,
-}: { server: McpServer; context: ServerContext }) {
+}: {
+  server: McpServer;
+  context: ServerContext;
+}) {
   server.tool(
     'get_vault_item',
     'Retrieve details for a Vault key, secret, token, or folder.',
@@ -97,13 +100,13 @@ export function registerVaultTools({
       );
 
       const response = await vault.list({
-        filter: filter,
-        size: size,
+        filter,
+        size,
         // @ts-expect-error
-        order: order,
+        order,
         // @ts-expect-error
-        order_by: order_by,
-        last: last,
+        order_by,
+        last,
       });
 
       if (!response.success) {

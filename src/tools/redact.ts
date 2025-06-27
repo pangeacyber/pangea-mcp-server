@@ -8,7 +8,10 @@ import type { ServerContext } from '../types.js';
 export function registerRedactTools({
   server,
   context,
-}: { server: McpServer; context: ServerContext }) {
+}: {
+  server: McpServer;
+  context: ServerContext;
+}) {
   server.tool(
     'redact',
     'Redact sensitive information from provided text.',

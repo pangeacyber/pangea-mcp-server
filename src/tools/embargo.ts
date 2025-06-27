@@ -8,7 +8,10 @@ import type { ServerContext } from '../types.js';
 export function registerEmbargoTools({
   server,
   context,
-}: { server: McpServer; context: ServerContext }) {
+}: {
+  server: McpServer;
+  context: ServerContext;
+}) {
   server.tool(
     'check_ip_embargo',
     'Check one or more IP addresses against known sanction and trade embargo lists.',

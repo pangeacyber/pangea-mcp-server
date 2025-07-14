@@ -43,7 +43,7 @@
     "@biomejs/biome": "2.1.1",
     "@tsconfig/node22": "22.0.2",
     "@types/node": "22.15.17",
-    "lefthook": "1.11.16",
+    "lefthook": "1.12.2",
     "tsx": "4.20.3",
     "typescript": "5.8.3",
     "ultracite": "5.0.32"

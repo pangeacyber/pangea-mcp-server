@@ -1,28 +1,24 @@
-import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import type { FastMCP } from 'fastmcp';
 import { PangeaConfig, VaultService } from 'pangea-node-sdk';
 import { z } from 'zod';
 
-import type { ServerContext } from '../types.js';
+import type { FastMCPSessionAuth, ServerContext } from '../types.js';
 
 const VAULT_ITEM_ID_REGEX = /^pvi_[a-z2-7]{32}$/;
 
-export function registerVaultTools({
-  server,
-  context,
-}: {
-  server: McpServer;
-  context: ServerContext;
-}) {
-  server.tool(
-    'get_vault_item',
-    'Retrieve details for a Vault key, secret, token, or folder.',
-    {
+export function registerVaultTools<
+  T extends FastMCPSessionAuth = FastMCPSessionAuth,
+>({ server, context }: { server: FastMCP<T>; context: ServerContext }) {
+  server.addTool({
+    name: 'get_vault_item',
+    description: 'Retrieve details for a Vault key, secret, token, or folder.',
+    parameters: z.object({
       id: z
         .string()
         .regex(VAULT_ITEM_ID_REGEX)
         .describe('ID of a Vault key, secret, token, or folder'),
-    },
-    async ({ id }) => {
+    }),
+    execute: async ({ id }) => {
       const vault = new VaultService(
         context.apiToken,
         new PangeaConfig({ domain: 'aws.us.pangea.cloud' })
@@ -49,13 +45,14 @@ export function registerVaultTools({
           },
         ],
       };
-    }
-  );
+    },
+  });
 
-  server.tool(
-    'list_vault_items',
-    'Retrieve an array of Vault items matching a given filter, including secrets, keys, tokens, and folders, along with their common details.',
-    {
+  server.addTool({
+    name: 'list_vault_items',
+    description:
+      'Retrieve an array of Vault items matching a given filter, including secrets, keys, tokens, and folders, along with their common details.',
+    parameters: z.object({
       filter: z
         .object({})
         .partial()
@@ -92,8 +89,8 @@ export function registerVaultTools({
         .describe(
           'Internal ID returned in the previous look up response. Used for pagination.'
         ),
-    },
-    async ({ filter, size, order, order_by, last }) => {
+    }),
+    execute: async ({ filter, size, order, order_by, last }) => {
       const vault = new VaultService(
         context.apiToken,
         new PangeaConfig({ domain: 'aws.us.pangea.cloud' })
@@ -128,19 +125,19 @@ export function registerVaultTools({
           },
         ],
       };
-    }
-  );
+    },
+  });
 
-  server.tool(
-    'delete_vault_item',
-    'Delete a Vault key, secret, token, or folder.',
-    {
+  server.addTool({
+    name: 'delete_vault_item',
+    description: 'Delete a Vault key, secret, token, or folder.',
+    parameters: z.object({
       id: z
         .string()
         .regex(VAULT_ITEM_ID_REGEX)
         .describe('ID of a Vault key, secret, token, or folder'),
-    },
-    async ({ id }) => {
+    }),
+    execute: async ({ id }) => {
       const vault = new VaultService(
         context.apiToken,
         new PangeaConfig({ domain: 'aws.us.pangea.cloud' })
@@ -167,13 +164,13 @@ export function registerVaultTools({
           },
         ],
       };
-    }
-  );
+    },
+  });
 
-  server.tool(
-    'generate_key',
-    'Generate a symmetric or asymmetric key.',
-    {
+  server.addTool({
+    name: 'generate_key',
+    description: 'Generate a symmetric or asymmetric key.',
+    parameters: z.object({
       type: z.enum(['asymmetric_key', 'symmetric_key']),
       purpose: z
         .union([
@@ -264,8 +261,8 @@ export function registerVaultTools({
       ]),
       name: z.string(),
       folder: z.string().optional(),
-    },
-    async ({ type, purpose, algorithm, name, folder }) => {
+    }),
+    execute: async ({ type, purpose, algorithm, name, folder }) => {
       const vault = new VaultService(
         context.apiToken,
         new PangeaConfig({ domain: 'aws.us.pangea.cloud' })
@@ -309,6 +306,6 @@ export function registerVaultTools({
           },
         ],
       };
-    }
-  );
+    },
+  });
 }

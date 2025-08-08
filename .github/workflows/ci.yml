@@ -29,7 +29,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          node-version: "22.15.0"
+          node-version: "22.17.0"
           cache: npm
 
       - name: Install dependencies
@@ -37,6 +37,9 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Typecheck
+        run: npm run typecheck
 
   docker:
     runs-on: ubuntu-24.04
@@ -62,7 +65,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          node-version: "22.15.0"
+          node-version: "22.17.0"
           cache: npm
 
       - name: Install dependencies

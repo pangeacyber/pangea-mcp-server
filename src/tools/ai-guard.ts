@@ -1,20 +1,16 @@
-import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import type { FastMCP } from 'fastmcp';
 import { AIGuardService, PangeaConfig } from 'pangea-node-sdk';
 import { z } from 'zod';
 
-import type { ServerContext } from '../types.js';
+import type { FastMCPSessionAuth, ServerContext } from '../types.js';
 
-export function registerAiGuardTools({
-  server,
-  context,
-}: {
-  server: McpServer;
-  context: ServerContext;
-}) {
-  server.tool(
+export function registerAiGuardTools<
+  T extends FastMCPSessionAuth = FastMCPSessionAuth,
+>({ server, context }: { server: FastMCP<T>; context: ServerContext }) {
+  server.addTool({
     // Yes this is technically an AI Guard tool but we like this name for it.
-    'prompt_guard',
-    [
+    name: 'prompt_guard',
+    description: [
       'Analyze and redact text to avoid manipulation of an AI model, addition of malicious content, and other undesirable data transfers.',
       '',
       'Available recipes:',
@@ -33,7 +29,7 @@ export function registerAiGuardTools({
       '```',
       '</examples>',
     ].join('\n'),
-    {
+    parameters: z.object({
       text: z
         .string()
         .describe(
@@ -52,8 +48,8 @@ export function registerAiGuardTools({
         .describe(
           'Recipe key of a configuration of data types and settings defined in the Pangea User Console. It specifies the rules that are to be applied to the text, such as defang malicious URLs.'
         ),
-    },
-    async ({ text, recipe }) => {
+    }),
+    execute: async ({ text, recipe }) => {
       const aiGuard = new AIGuardService(
         context.apiToken,
         new PangeaConfig({ domain: 'aws.us.pangea.cloud' })
@@ -79,6 +75,6 @@ export function registerAiGuardTools({
           },
         ],
       };
-    }
-  );
+    },
+  });
 }

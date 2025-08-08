@@ -1,26 +1,21 @@
-import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import type { FastMCP } from 'fastmcp';
 import { PangeaConfig, RedactService } from 'pangea-node-sdk';
 import { z } from 'zod';
 
 import { aiGuard } from '../guard.js';
-import type { ServerContext } from '../types.js';
+import type { FastMCPSessionAuth, ServerContext } from '../types.js';
 
-export function registerRedactTools({
-  server,
-  context,
-}: {
-  server: McpServer;
-  context: ServerContext;
-}) {
-  server.tool(
-    'redact',
-    'Redact sensitive information from provided text.',
-    {
-      text: z.string().describe('The text data to redact'),
-    },
-    aiGuard<{
-      text: z.ZodString;
-    }>(context, async ({ text }) => {
+export function registerRedactTools<
+  T extends FastMCPSessionAuth = FastMCPSessionAuth,
+>({ server, context }: { server: FastMCP<T>; context: ServerContext }) {
+  const redactParameters = z.object({
+    text: z.string().describe('The text data to redact'),
+  });
+  server.addTool({
+    name: 'redact',
+    description: 'Redact sensitive information from provided text.',
+    parameters: redactParameters,
+    execute: aiGuard<T, typeof redactParameters>(context, async ({ text }) => {
       const redact = new RedactService(
         context.apiToken,
         new PangeaConfig({ domain: 'aws.us.pangea.cloud' })
@@ -46,6 +41,6 @@ export function registerRedactTools({
           },
         ],
       };
-    })
-  );
+    }),
+  });
 }

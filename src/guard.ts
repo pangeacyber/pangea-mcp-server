@@ -1,29 +1,58 @@
-import type { ToolCallback } from '@modelcontextprotocol/sdk/server/mcp.js';
-import type { RequestHandlerExtra } from '@modelcontextprotocol/sdk/shared/protocol.js';
+import type { CallToolResult } from '@modelcontextprotocol/sdk/types.js';
+import type { StandardSchemaV1 } from '@standard-schema/spec';
 import type {
-  CallToolResult,
-  ServerNotification,
-  ServerRequest,
-} from '@modelcontextprotocol/sdk/types.js';
+  AudioContent,
+  ContentResult,
+  Context,
+  ImageContent,
+  ResourceContent,
+  ResourceLink,
+  TextContent,
+  ToolParameters,
+} from 'fastmcp';
 import { AIGuardService, PangeaConfig } from 'pangea-node-sdk';
-import type { ZodRawShape } from 'zod';
+import { z } from 'zod';
 
-import type { ServerContext } from './types.js';
+import type { FastMCPSessionAuth, ServerContext } from './types.js';
 
-export function aiGuard<Args extends ZodRawShape>(
+type ToolCallback<
+  T extends FastMCPSessionAuth,
+  Params extends ToolParameters = ToolParameters,
+> = (
+  args: StandardSchemaV1.InferOutput<Params>,
+  context: Context<T>
+) => Promise<
+  | AudioContent
+  | ContentResult
+  | ImageContent
+  | ResourceContent
+  | ResourceLink
+  | string
+  | TextContent
+  | void
+>;
+
+const TextContentZodSchema = z
+  .object({
+    /** The text content of the message. */
+    text: z.string(),
+    type: z.literal('text'),
+  })
+  .strict() satisfies z.ZodType<TextContent>;
+
+export function aiGuard<
+  T extends FastMCPSessionAuth,
+  Params extends ToolParameters = ToolParameters,
+>(
   context: ServerContext,
-  cb: ToolCallback<Args>
-): ToolCallback<Args> {
+  cb: ToolCallback<T, Params>
+): ToolCallback<T, Params> {
   const client = new AIGuardService(
     context.apiToken,
     new PangeaConfig({ domain: 'aws.us.pangea.cloud' })
   );
 
-  // @ts-expect-error
-  return async (
-    args: Args,
-    extra: RequestHandlerExtra<ServerRequest, ServerNotification>
-  ) => {
+  return async (args, fastmcpContext) => {
     const input = JSON.stringify(args);
 
     const guardedInput = await client.guardText({
@@ -39,10 +68,10 @@ export function aiGuard<Args extends ZodRawShape>(
       throw new Error('Input has been blocked by AI Guard.');
     }
 
-    const result = await cb(args, extra);
+    const result = await cb(args, fastmcpContext);
 
     // AI Guard can only guard text content.
-    if (!result.content || result.content.some(({ type }) => type !== 'text')) {
+    if (!TextContentZodSchema.safeParse(result).success) {
       return result;
     }
 

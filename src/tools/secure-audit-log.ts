@@ -1,9 +1,9 @@
-import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import type { FastMCP } from 'fastmcp';
 import { AuditService, PangeaConfig } from 'pangea-node-sdk';
 import { z } from 'zod';
 
 import { aiGuard } from '../guard.js';
-import type { ServerContext } from '../types.js';
+import type { FastMCPSessionAuth, ServerContext } from '../types.js';
 
 const standardAuditLogEventSchema = z
   .object({
@@ -42,20 +42,15 @@ const standardAuditLogEventSchema = z
   })
   .describe('A structured record describing an auditable event.');
 
-export function registerSecureAuditLogTools({
-  server,
-  context,
-}: {
-  server: McpServer;
-  context: ServerContext;
-}) {
-  server.tool(
-    'log_entry',
-    'Create a log entry in the Secure Audit Log.',
-    {
-      event: standardAuditLogEventSchema,
-    },
-    aiGuard<{ event: typeof standardAuditLogEventSchema }>(
+export function registerSecureAuditLogTools<
+  T extends FastMCPSessionAuth = FastMCPSessionAuth,
+>({ server, context }: { server: FastMCP<T>; context: ServerContext }) {
+  const logEntryParameters = z.object({ event: standardAuditLogEventSchema });
+  server.addTool({
+    name: 'log_entry',
+    description: 'Create a log entry in the Secure Audit Log.',
+    parameters: logEntryParameters,
+    execute: aiGuard<T, typeof logEntryParameters>(
       context,
       async ({ event }) => {
         const audit = new AuditService(
@@ -74,12 +69,12 @@ export function registerSecureAuditLogTools({
           ],
         };
       }
-    )
-  );
+    ),
+  });
 
-  server.tool(
-    'search_log',
-    [
+  server.addTool({
+    name: 'search_log',
+    description: [
       'Search the Secure Audit Log.',
       '',
       '<examples>',
@@ -115,7 +110,7 @@ export function registerSecureAuditLogTools({
       '',
       '</examples>',
     ].join('\n'),
-    {
+    parameters: z.object({
       query: z
         .string()
         .describe(
@@ -135,8 +130,8 @@ export function registerSecureAuditLogTools({
         .describe(
           'Number of audit records to include from the first page of the results.'
         ),
-    },
-    async ({ query, maxResults, limit }) => {
+    }),
+    execute: async ({ query, maxResults, limit }) => {
       const audit = new AuditService(
         context.apiToken,
         new PangeaConfig({ domain: 'aws.us.pangea.cloud' }),
@@ -163,6 +158,6 @@ export function registerSecureAuditLogTools({
           },
         ],
       };
-    }
-  );
+    },
+  });
 }

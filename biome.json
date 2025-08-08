@@ -14,6 +14,9 @@
       },
       "style": {
         "noNonNullAssertion": "off"
+      },
+      "suspicious": {
+        "noConfusingVoidType": "off"
       }
     }
   }

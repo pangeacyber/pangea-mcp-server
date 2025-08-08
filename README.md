@@ -7,7 +7,7 @@ server that provides integration with Pangea APIs.
 
 ## Prerequisites
 
-- Node.js v22.15.0 or greater.
+- Node.js v22.17.0 or greater.
 - A Pangea API token with access to all of AI Guard, Domain Intel, Embargo,
   IP Intel, Redact, Secure Audit Log, URL Intel, and Vault. This token needs to
   be stored in Pangea Vault. See [Service Tokens][] for documentation on how to
@@ -105,6 +105,12 @@ Replace (or merge) the file contents with the following:
 1. Update the `PANGEA_AUDIT_CONFIG_ID` value to the Secure Audit Log
    configuration ID.
 1. Restart Claude Desktop.
+
+## Running as an HTTP server
+
+```bash
+npx @pangeacyber/mcp-server --transport httpStream --port 8080
+```
 
 ## Tools
 

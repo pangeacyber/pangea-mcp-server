@@ -3,7 +3,14 @@
   "extends": [
     "config:best-practices",
     "local>pangeacyber/.github:renovate-config",
-    ":semanticCommitsDisabled"
+    ":semanticCommits",
+    ":semanticCommitScope(deps)"
   ],
-  "ignorePaths": []
+  "ignorePaths": [],
+  "packageRules": [
+    {
+      "matchManagers": ["github-actions"],
+      "extends": [":semanticCommitScope(ci)"]
+    }
+  ]
 }

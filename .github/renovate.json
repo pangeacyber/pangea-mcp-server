@@ -10,7 +10,12 @@
   "packageRules": [
     {
       "matchManagers": ["github-actions"],
-      "extends": [":semanticCommitScope(ci)"]
+      "extends": [":semanticPrefixChore", ":semanticCommitScope(ci)"]
+    },
+    {
+      "matchFileNames": ["examples/**"],
+      "extends": [":semanticPrefixChore", ":semanticCommitScope(examples)"],
+      "additionalBranchPrefix": "{{parentDir}}/"
     }
   ]
 }

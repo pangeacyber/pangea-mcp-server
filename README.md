@@ -112,6 +112,37 @@ Replace (or merge) the file contents with the following:
 npx @pangeacyber/mcp-server --transport httpStream --port 8080
 ```
 
+### Adding Pangea AuthN
+
+When running the server with the streamable HTTP transport, it is possible to
+optionally add authentication to the server via Pangea AuthN. To enable this
+feature, set the `--authn` flag and set the following environment variables:
+
+- `PANGEA_AUTHN_ISSUER` — Pangea AuthN issuer URL.
+- `PANGEA_AUTHN_CLIENT_ID` — Pangea AuthN client ID.
+- `PANGEA_AUTHN_CLIENT_SECRET` — Pangea AuthN client secret.
+
+#### Client setup
+
+1. Navigate to the Pangea AuthN dashboard.
+2. In the left hand panel, click on **OAuth Server**.
+3. Click on the **+ OAuth Client** button on the right to begin creating a new
+   OAuth client.
+   - **Name:** Assign a recognizable name to your client as it will appear in
+     the list of clients in the OAuth Server settings. This name may be updated
+     at any time.
+   - **Grant Type:** must be **Authorization Code**.
+   - **Response Types:** only **Code** is required.
+   - **Allowed Redirect URIs:** enter **`http://localhost:8000/pangea/callback`**.
+     Note that for a production MCP server, this should use the remote address
+     of the server (e.g. `https://mcp.example.org/pangea/callback`) instead of a
+     `localhost` address.
+   - **Allowed Scopes & Default Scopes:** `openid`.
+4. The **Client ID** and **Client Secret** should be the
+   `PANGEA_AUTHN_CLIENT_ID` and `PANGEA_AUTHN_CLIENT_SECRET` environment
+   variables respectively. The **Hosted Login** URL that is displayed on the
+   AuthN Overview page is the `PANGEA_AUTHN_ISSUER` environment variable.
+
 ## Tools
 
 ### AI Guard

@@ -32,19 +32,22 @@
     "."
   ],
   "dependencies": {
-    "fastmcp": "^3.14.1",
-    "pangea-node-sdk": "^5.2.0",
-    "trpc-cli": "^0.10.2",
-    "zod": "^3.25.76"
+    "@clack/prompts": "0.11.0",
+    "@modelcontextprotocol/sdk": "1.17.2",
+    "express": "5.1.0",
+    "fastmcp": "3.14.1",
+    "pangea-node-sdk": "5.2.0",
+    "trpc-cli": "0.10.2",
+    "zod": "3.25.76"
   },
   "optionalDependencies": {
     "@biomejs/cli-linux-x64": "2.1.4"
   },
   "devDependencies": {
     "@biomejs/biome": "2.1.4",
-    "@modelcontextprotocol/sdk": "1.17.2",
     "@standard-schema/spec": "1.0.0",
     "@tsconfig/node22": "22.0.2",
+    "@types/express": "5.0.3",
     "@types/node": "22.15.17",
     "lefthook": "1.12.2",
     "tsdown": "0.13.4",

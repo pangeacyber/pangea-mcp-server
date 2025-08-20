@@ -35,7 +35,7 @@
     "@clack/prompts": "0.11.0",
     "@modelcontextprotocol/sdk": "1.17.2",
     "express": "5.1.0",
-    "fastmcp": "3.14.3",
+    "fastmcp": "3.14.5",
     "pangea-node-sdk": "5.2.0",
     "trpc-cli": "0.10.2",
     "zod": "3.25.76"

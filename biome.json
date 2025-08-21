@@ -1,23 +1,4 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "extends": ["ultracite"],
-  "formatter": {
-    "indentStyle": "space",
-    "lineEnding": "lf",
-    "lineWidth": 80
-  },
-  "linter": {
-    "rules": {
-      "nursery": {
-        "noAwaitInLoop": "off",
-        "noShadow": "off"
-      },
-      "style": {
-        "noNonNullAssertion": "off"
-      },
-      "suspicious": {
-        "noConfusingVoidType": "off"
-      }
-    }
-  }
+  "extends": ["@kenan/biome-config"]
 }

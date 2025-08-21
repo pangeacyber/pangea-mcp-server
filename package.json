@@ -44,7 +44,8 @@
     "@biomejs/cli-linux-x64": "2.2.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.1.4",
+    "@biomejs/biome": "2.2.0",
+    "@kenan/biome-config": "1.0.3",
     "@standard-schema/spec": "1.0.0",
     "@tsconfig/node22": "22.0.2",
     "@types/express": "5.0.3",
@@ -52,7 +53,6 @@
     "lefthook": "1.12.3",
     "tsdown": "0.14.1",
     "tsx": "4.20.4",
-    "typescript": "5.9.2",
-    "ultracite": "5.1.2"
+    "typescript": "5.9.2"
   }
 }

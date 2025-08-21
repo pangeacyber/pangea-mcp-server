@@ -33,7 +33,7 @@
   ],
   "dependencies": {
     "@clack/prompts": "0.11.0",
-    "@modelcontextprotocol/sdk": "1.17.2",
+    "@modelcontextprotocol/sdk": "1.17.3",
     "express": "5.1.0",
     "fastmcp": "3.14.5",
     "pangea-node-sdk": "5.2.0",

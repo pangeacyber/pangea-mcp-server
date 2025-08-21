@@ -29,6 +29,7 @@ type ToolCallback<
   | ResourceLink
   | string
   | TextContent
+  // biome-ignore lint/suspicious/noConfusingVoidType: Promise<void> is fine
   | void
 >;
 

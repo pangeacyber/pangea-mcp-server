@@ -44,7 +44,7 @@
     "@biomejs/cli-linux-x64": "2.2.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.2",
+    "@biomejs/biome": "2.2.4",
     "@kenan/biome-config": "1.0.4",
     "@standard-schema/spec": "1.0.0",
     "@tsconfig/node22": "22.0.2",

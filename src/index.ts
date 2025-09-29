@@ -3,10 +3,11 @@
 import { log } from '@clack/prompts';
 import { clientRegistrationHandler } from '@modelcontextprotocol/sdk/server/auth/handlers/register.js';
 import { mcpAuthRouter } from '@modelcontextprotocol/sdk/server/auth/router.js';
+import * as trpcServer from '@trpc/server';
 import express from 'express';
 import { FastMCP } from 'fastmcp';
 import { PangeaConfig, VaultService } from 'pangea-node-sdk';
-import { createCli, type TrpcCliMeta, trpcServer } from 'trpc-cli';
+import { createCli, type TrpcCliMeta } from 'trpc-cli';
 import { z } from 'zod/v4';
 
 import packageJson from '../package.json' with { type: 'json' };

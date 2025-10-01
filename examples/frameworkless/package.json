@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "0.64.0",
-    "@dotenvx/dotenvx": "1.50.1",
+    "@dotenvx/dotenvx": "1.51.0",
     "@modelcontextprotocol/sdk": "1.18.2",
     "citty": "0.1.6",
     "consola": "3.4.2"

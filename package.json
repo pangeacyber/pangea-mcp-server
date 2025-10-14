@@ -50,7 +50,7 @@
     "@standard-schema/spec": "1.0.0",
     "@tsconfig/node22": "22.0.2",
     "@types/express": "5.0.3",
-    "@types/node": "22.18.9",
+    "@types/node": "22.18.10",
     "lefthook": "1.13.6",
     "tsdown": "0.15.6",
     "tsx": "4.20.6",

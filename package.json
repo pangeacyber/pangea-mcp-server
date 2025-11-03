@@ -51,7 +51,7 @@
     "@tsconfig/node22": "22.0.2",
     "@types/express": "5.0.4",
     "@types/node": "24.9.2",
-    "lefthook": "2.0.1",
+    "lefthook": "2.0.2",
     "tsdown": "0.15.12",
     "tsx": "4.20.6",
     "typescript": "5.9.3"

@@ -7,7 +7,7 @@ server that provides integration with Pangea APIs.
 
 ## Prerequisites
 
-- Node.js v22.17.0 or greater.
+- Node.js v24.11.0 or greater.
 - A Pangea API token with access to all of AI Guard, Domain Intel, Embargo,
   IP Intel, Redact, Secure Audit Log, URL Intel, and Vault. This token needs to
   be stored in Pangea Vault. See [Service Tokens][] for documentation on how to

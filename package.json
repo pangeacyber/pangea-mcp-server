@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.6",
-    "@kenan/biome-config": "1.0.5",
+    "@kenan/biome-config": "1.0.6",
     "@standard-schema/spec": "1.0.0",
     "@tsconfig/node22": "22.0.2",
     "@types/express": "5.0.4",

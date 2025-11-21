@@ -3,6 +3,10 @@
   "version": "0.0.0-semantic-release",
   "description": "A Model Context Protocol (MCP) server that provides integration with Pangea APIs",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pangeacyber/pangea-mcp-server.git"
+  },
   "publishConfig": {
     "access": "public"
   },

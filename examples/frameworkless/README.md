@@ -15,7 +15,7 @@ following environment variables must be set as well:
 Then run the following from this directory:
 
 ```shell
-$ npm run build
+$ pnpm build
 
 $ node dist/index.js --input "where are these IP addresses located?: 89.187.191.12, 78.46.209.220, and 185.73.44.89"
 ```

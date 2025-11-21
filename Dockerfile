@@ -1,21 +1,21 @@
-FROM node:24.11.0-alpine@sha256:f36fed0b2129a8492535e2853c64fbdbd2d29dc1219ee3217023ca48aebd3787 AS builder
+FROM node:24.11.0-alpine@sha256:f36fed0b2129a8492535e2853c64fbdbd2d29dc1219ee3217023ca48aebd3787 AS base
+
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+
+FROM base AS builder
 
 WORKDIR /app
 ADD . /app
 
-RUN --mount=type=cache,target=/root/.npm npm install
-RUN npm run build
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN pnpm build
+RUN pnpm deploy --filter=@pangeacyber/mcp-server --prod /prod/mcp-server
 
-FROM node:24.11.0-alpine@sha256:f36fed0b2129a8492535e2853c64fbdbd2d29dc1219ee3217023ca48aebd3787 AS release
+FROM base AS release
 
-COPY --from=builder /app/dist /app/dist
-COPY --from=builder /app/package.json /app/package.json
-COPY --from=builder /app/package-lock.json /app/package-lock.json
+COPY --from=builder /prod/mcp-server /prod/mcp-server
+WORKDIR /prod/mcp-server
 
-ENV NODE_ENV=production
-
-WORKDIR /app
-
-RUN npm ci --ignore-scripts --omit=dev
-
-ENTRYPOINT ["node", "dist/index.js"]
+ENTRYPOINT ["node", "/prod/mcp-server/dist/index.js"]

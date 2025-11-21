@@ -1,0 +1,11 @@
+packages:
+  - examples/frameworkless
+  - examples/langchain
+  - .
+
+onlyBuiltDependencies:
+  - esbuild
+  - lefthook
+
+injectWorkspacePackages: true
+strictPeerDependencies: true

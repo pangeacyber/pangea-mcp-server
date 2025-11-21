@@ -7,8 +7,8 @@ First build the project from source:
 ```shell
 $ git clone https://github.com/pangeacyber/pangea-mcp-server.git
 $ cd pangea-mcp-server
-$ npm install
-$ npm run build
+$ pnpm install
+$ pnpm build
 ```
 
 Then configure a MCP client like Claude Desktop or VS Code to run the server:

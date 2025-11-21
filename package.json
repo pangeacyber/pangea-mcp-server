@@ -26,11 +26,7 @@
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run -s build"
   },
-  "workspaces": [
-    "examples/frameworkless",
-    "examples/langchain",
-    "."
-  ],
+  "packageManager": "pnpm@10.21.0",
   "dependencies": {
     "@clack/prompts": "0.11.0",
     "@modelcontextprotocol/sdk": "1.21.1",

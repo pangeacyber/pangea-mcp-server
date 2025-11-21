@@ -28,7 +28,7 @@
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "npm run -s build"
+    "prepublishOnly": "pnpm run build"
   },
   "packageManager": "pnpm@10.21.0",
   "dependencies": {

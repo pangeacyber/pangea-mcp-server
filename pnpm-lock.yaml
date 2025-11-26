@@ -22,8 +22,8 @@ importers:
         specifier: 5.1.0
         version: 5.1.0
       fastmcp:
-        specifier: 3.22.0
-        version: 3.22.0(@cfworker/json-schema@4.1.1)
+        specifier: 3.23.1
+        version: 3.23.1(@cfworker/json-schema@4.1.1)
       pangea-node-sdk:
         specifier: 5.6.0
         version: 5.6.0
@@ -1362,8 +1362,8 @@ packages:
   fast-uri@3.1.0:
     resolution: {integrity: sha512-iPeeDKJSWf4IEOasVVrknXpaBV0IApz/gp7S2bb7Z4Lljbl2MGJRqInZiUrQwV16cpzw/D3S5j5Julj/gT52AA==}
 
-  fastmcp@3.22.0:
-    resolution: {integrity: sha512-sRFwRK6+j3KT7Jj4PTUJXzbHoGsE2KrZqheTy9zK/cfPvkP1J1Vhne9WVrpNAVUAe+iiXjvlP9gabqEhKisOYg==}
+  fastmcp@3.23.1:
+    resolution: {integrity: sha512-98wz8gLaLAJm7c2zrPk2tIHqTllrnyXZTSGgjh8Mkv6+ivlRDYle+iTjpeIr9vb8tI5XH2+f9KLj0opcO/OUag==}
     hasBin: true
 
   fdir@6.5.0:
@@ -3994,7 +3994,7 @@ snapshots:
 
   fast-uri@3.1.0: {}
 
-  fastmcp@3.22.0(@cfworker/json-schema@4.1.1):
+  fastmcp@3.23.1(@cfworker/json-schema@4.1.1):
     dependencies:
       '@modelcontextprotocol/sdk': 1.22.0(@cfworker/json-schema@4.1.1)
       '@standard-schema/spec': 1.0.0

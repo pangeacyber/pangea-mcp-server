@@ -49,7 +49,7 @@
     "@containerbase/semantic-release-pnpm": "1.3.5",
     "@kenan/biome-config": "1.0.6",
     "@standard-schema/spec": "1.0.0",
-    "@tsconfig/node24": "24.0.1",
+    "@tsconfig/node24": "24.0.3",
     "@types/express": "5.0.5",
     "@types/node": "24.10.1",
     "conventional-changelog-conventionalcommits": "9.1.0",

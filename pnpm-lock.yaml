@@ -97,8 +97,8 @@ importers:
         version: 3.4.2
     devDependencies:
       '@tsconfig/node24':
-        specifier: 24.0.1
-        version: 24.0.1
+        specifier: 24.0.3
+        version: 24.0.3
       '@types/node':
         specifier: 24.10.1
         version: 24.10.1
@@ -131,8 +131,8 @@ importers:
         version: 3.4.2
     devDependencies:
       '@tsconfig/node24':
-        specifier: 24.0.1
-        version: 24.0.1
+        specifier: 24.0.3
+        version: 24.0.3
       '@types/node':
         specifier: 24.10.1
         version: 24.10.1

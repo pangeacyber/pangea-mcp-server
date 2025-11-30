@@ -55,7 +55,7 @@
     "conventional-changelog-conventionalcommits": "9.1.0",
     "lefthook": "2.0.4",
     "semantic-release": "25.0.2",
-    "tsdown": "0.16.6",
+    "tsdown": "0.16.8",
     "tsx": "4.20.6",
     "typescript": "5.9.3"
   }

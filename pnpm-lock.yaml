@@ -115,7 +115,7 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2(@langchain/core@1.1.2(openai@6.9.1(zod@3.25.76)))(zod-to-json-schema@3.25.0(zod@3.25.76))(zod@3.25.76)
       '@langchain/mcp-adapters':
-        specifier: ^1.0.1
+        specifier: ^1.0.2
         version: 1.0.2(@cfworker/json-schema@4.1.1)(@langchain/core@1.1.2(openai@6.9.1(zod@3.25.76)))(@langchain/langgraph@1.0.2(@langchain/core@1.1.2(openai@6.9.1(zod@3.25.76)))(zod-to-json-schema@3.25.0(zod@3.25.76))(zod@3.25.76))
       '@langchain/openai':
         specifier: ^1.1.3

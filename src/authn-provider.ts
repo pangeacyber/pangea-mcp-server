@@ -12,7 +12,7 @@ import {
 } from '@modelcontextprotocol/sdk/shared/auth.js';
 import type { Response } from 'express';
 import { PangeaConfig, Vault, VaultService } from 'pangea-node-sdk';
-import { z } from 'zod';
+import { z } from 'zod/v4';
 
 // Pangea AuthN only supports these grant types.
 const SUPPORTED_GRANT_TYPES = ['authorization_code', 'client_credentials'];

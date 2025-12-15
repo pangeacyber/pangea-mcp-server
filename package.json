@@ -33,7 +33,7 @@
   "packageManager": "pnpm@10.25.0",
   "dependencies": {
     "@clack/prompts": "0.11.0",
-    "@modelcontextprotocol/sdk": "1.24.0",
+    "@modelcontextprotocol/sdk": "1.24.3",
     "@trpc/server": "11.7.2",
     "express": "5.2.1",
     "fastmcp": "3.25.4",

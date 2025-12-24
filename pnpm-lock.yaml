@@ -75,8 +75,8 @@ importers:
         version: 5.9.3
     optionalDependencies:
       '@biomejs/cli-linux-x64':
-        specifier: 2.3.8
-        version: 2.3.8
+        specifier: 2.3.10
+        version: 2.3.10
 
   examples/frameworkless:
     dependencies:
@@ -233,6 +233,12 @@ packages:
 
   '@biomejs/cli-linux-x64-musl@2.3.8':
     resolution: {integrity: sha512-YGLkqU91r1276uwSjiUD/xaVikdxgV1QpsicT0bIA1TaieM6E5ibMZeSyjQ/izBn4tKQthUSsVZacmoJfa3pDA==}
+    engines: {node: '>=14.21.3'}
+    cpu: [x64]
+    os: [linux]
+
+  '@biomejs/cli-linux-x64@2.3.10':
+    resolution: {integrity: sha512-wwAkWD1MR95u+J4LkWP74/vGz+tRrIQvr8kfMMJY8KOQ8+HMVleREOcPYsQX82S7uueco60L58Wc6M1I9WA9Dw==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [linux]
@@ -2786,6 +2792,9 @@ snapshots:
     optional: true
 
   '@biomejs/cli-linux-x64-musl@2.3.8':
+    optional: true
+
+  '@biomejs/cli-linux-x64@2.3.10':
     optional: true
 
   '@biomejs/cli-linux-x64@2.3.8':

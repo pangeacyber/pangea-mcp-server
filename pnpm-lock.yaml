@@ -65,8 +65,8 @@ importers:
         specifier: 25.0.2
         version: 25.0.2(typescript@5.9.3)
       tsdown:
-        specifier: 0.18.3
-        version: 0.18.3(typescript@5.9.3)
+        specifier: 0.18.4
+        version: 0.18.4(typescript@5.9.3)
       tsx:
         specifier: 4.21.0
         version: 4.21.0
@@ -2453,8 +2453,8 @@ packages:
   ts-algebra@2.0.0:
     resolution: {integrity: sha512-FPAhNPFMrkwz76P7cdjdmiShwMynZYN6SgOujD1urY4oNm80Ou9oMdmbR45LotcKOXoy7wSmHkRFE6Mxbrhefw==}
 
-  tsdown@0.18.3:
-    resolution: {integrity: sha512-OVFzktKDTglFAUh/WO8WamBUbZoBlJ9m7NgZZrVyIKe32BfXBeRZ+soFFpuOGVP8g8OU4tOLOpTyPTELWvcTFw==}
+  tsdown@0.18.4:
+    resolution: {integrity: sha512-J/tRS6hsZTkvqmt4+xdELUCkQYDuUCXgBv0fw3ImV09WPGbEKfsPD65E+WUjSu3E7Z6tji9XZ1iWs8rbGqB/ZA==}
     engines: {node: '>=20.19.0'}
     hasBin: true
     peerDependencies:
@@ -3840,7 +3840,7 @@ snapshots:
       strict-event-emitter-types: 2.0.0
       undici: 7.16.0
       uri-templates: 0.2.0
-      xsschema: 0.4.0-beta.5(zod-to-json-schema@3.25.0(zod@3.25.76))(zod@4.2.0)
+      xsschema: 0.4.0-beta.5(zod-to-json-schema@3.25.0(zod@4.2.0))(zod@4.2.0)
       yargs: 18.0.0
       zod: 4.2.0
       zod-to-json-schema: 3.25.0(zod@4.2.0)
@@ -4918,7 +4918,7 @@ snapshots:
 
   ts-algebra@2.0.0: {}
 
-  tsdown@0.18.3(typescript@5.9.3):
+  tsdown@0.18.4(typescript@5.9.3):
     dependencies:
       ansis: 4.2.0
       cac: 6.7.14
@@ -5055,7 +5055,7 @@ snapshots:
 
   wrappy@1.0.2: {}
 
-  xsschema@0.4.0-beta.5(zod-to-json-schema@3.25.0(zod@3.25.76))(zod@4.2.0):
+  xsschema@0.4.0-beta.5(zod-to-json-schema@3.25.0(zod@4.2.0))(zod@4.2.0):
     optionalDependencies:
       zod: 4.2.0
       zod-to-json-schema: 3.25.0(zod@4.2.0)

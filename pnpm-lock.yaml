@@ -109,7 +109,7 @@ importers:
   examples/langchain:
     dependencies:
       '@langchain/core':
-        specifier: ^1.1.5
+        specifier: ^1.1.8
         version: 1.1.8(openai@6.13.0(zod@3.25.76))
       '@langchain/langgraph':
         specifier: ^1.0.7
@@ -2712,9 +2712,6 @@ packages:
   zod@4.2.0:
     resolution: {integrity: sha512-Bd5fw9wlIhtqCCxotZgdTOMwGm1a0u75wARVEY9HMs1X17trvA/lMi4+MGK5EUfYkXVTbX8UDiDKW4OgzHVUZw==}
 
-  zod@4.2.1:
-    resolution: {integrity: sha512-0wZ1IRqGGhMP76gLqz8EyfBXKk0J2qo2+H3fi4mcUP/KtTocoX08nmIAHl1Z2kJIZbZee8KOpBCSNPRgauucjw==}
-
 snapshots:
 
   '@actions/core@1.11.1':
@@ -2991,7 +2988,7 @@ snapshots:
       mustache: 4.2.0
       p-queue: 6.6.2
       uuid: 10.0.0
-      zod: 4.2.1
+      zod: 3.25.76
     transitivePeerDependencies:
       - '@opentelemetry/api'
       - '@opentelemetry/exporter-trace-otlp-proto'
@@ -5159,5 +5156,3 @@ snapshots:
   zod@3.25.76: {}
 
   zod@4.2.0: {}
-
-  zod@4.2.1: {}

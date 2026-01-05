@@ -84,8 +84,8 @@ importers:
         specifier: 0.71.2
         version: 0.71.2(zod@3.25.76)
       '@dotenvx/dotenvx':
-        specifier: 1.51.2
-        version: 1.51.2
+        specifier: 1.51.4
+        version: 1.51.4
       '@modelcontextprotocol/sdk':
         specifier: ^1.24.3
         version: 1.24.3(@cfworker/json-schema@4.1.1)(zod@3.25.76)
@@ -277,8 +277,8 @@ packages:
     peerDependencies:
       semantic-release: ^24.0.0 || ^25.0.0
 
-  '@dotenvx/dotenvx@1.51.2':
-    resolution: {integrity: sha512-+693mNflujDZxudSEqSNGpn92QgFhJlBn9q2mDQ9yGWyHuz3hZ8B5g3EXCwdAz4DMJAI+OFCIbfEFZS+YRdrEA==}
+  '@dotenvx/dotenvx@1.51.4':
+    resolution: {integrity: sha512-AoziS8lRQ3ew/lY5J4JSlzYSN9Fo0oiyMBY37L3Bwq4mOQJT5GSrdZYLFPt6pH1LApDI3ZJceNyx+rHRACZSeQ==}
     hasBin: true
 
   '@ecies/ciphers@0.2.5':
@@ -2843,7 +2843,7 @@ snapshots:
       semantic-release: 25.0.2(typescript@5.9.3)
       semver: 7.7.3
 
-  '@dotenvx/dotenvx@1.51.2':
+  '@dotenvx/dotenvx@1.51.4':
     dependencies:
       commander: 11.1.0
       dotenv: 17.2.3

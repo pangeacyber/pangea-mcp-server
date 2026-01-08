@@ -28,8 +28,8 @@ importers:
         specifier: 5.6.0
         version: 5.6.0
       trpc-cli:
-        specifier: 0.12.1
-        version: 0.12.1(@trpc/server@11.8.1(typescript@5.9.3))(zod@3.25.76)
+        specifier: 0.12.2
+        version: 0.12.2(@trpc/server@11.8.1(typescript@5.9.3))(zod@3.25.76)
       zod:
         specifier: 3.25.76
         version: 3.25.76
@@ -2448,8 +2448,8 @@ packages:
     resolution: {integrity: sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==}
     hasBin: true
 
-  trpc-cli@0.12.1:
-    resolution: {integrity: sha512-/D/mIQf3tUrS7ZKJZ1gmSPJn2psAABJfkC5Eevm55SZ4s6KwANOUNlwhAGXN9HT4VSJVfoF2jettevE9vHPQlg==}
+  trpc-cli@0.12.2:
+    resolution: {integrity: sha512-kGNCiyOimGlfcZFImbWzFF2Nn3TMnenwUdyuckiN5SEaceJbIac7+Iau3WsVHjQpoNgugFruZMDOKf8GNQNtJw==}
     engines: {node: '>=18'}
     hasBin: true
     peerDependencies:
@@ -4965,7 +4965,7 @@ snapshots:
 
   tree-kill@1.2.2: {}
 
-  trpc-cli@0.12.1(@trpc/server@11.8.1(typescript@5.9.3))(zod@3.25.76):
+  trpc-cli@0.12.2(@trpc/server@11.8.1(typescript@5.9.3))(zod@3.25.76):
     dependencies:
       commander: 14.0.2
     optionalDependencies:
